@@ -1,30 +1,27 @@
 import React from "react";
-import styled from "styled-components";
-import { css } from "@emotion/css/macro";
+import styled from "@emotion/styled/macro";
 import tw from "twin.macro";
+import NavBar from "components/Navbar";
 
-interface State {
-  [key: string]: any;
-  test: string;
-}
-
-class Css {
-  static readonly PageContainer = (props?: State) => css`
-    ${tw`
-      flex
-      flex-col
-      w-full
-      h-full
-      items-center
-      overflow-hidden
-    `}
-
-    background-color: ${props?.test === "yes" ? "black" : "pink"};
-  `;
-}
+//#CSS PART START
+const PageContainer = styled.section`
+  ${tw`
+    flex
+    flex-col
+    w-full
+    h-full
+    items-center
+    overflow-x-hidden    
+  `}
+`;
+//#CSS PART END
 
 function HomePage() {
-  return <main className={Css.PageContainer({ test: "no" })}>hello test</main>;
+  return (
+    <PageContainer>
+      <NavBar />
+    </PageContainer>
+  );
 }
 
 export default HomePage;
