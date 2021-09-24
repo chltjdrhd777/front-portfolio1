@@ -64,15 +64,18 @@ export const deviceSizeUnits = {
   mobileS: "320px",
   mobileM: "375px",
   mobileL: "450px",
-  tablet: "768px",
+  tabletS: "640px",
+  tabletM: "768px",
   tabletL: "1024px",
+  tabletXl: "1280px",
+  desctop: "1536px",
 } as const;
 
 export const device = {
   mobileS: `only screen and (max-width: ${deviceSizeUnits.mobileS})`,
   mobileM: `only screen and (max-width: ${deviceSizeUnits.mobileM})`,
   mobileL: `only screen and (max-width: ${deviceSizeUnits.mobileL})`,
-  tablet: `only screen and (max-width: ${deviceSizeUnits.tablet})`,
+  tablet: `only screen and (max-width: ${deviceSizeUnits.tabletS})`,
   tabletL: `only screen and (max-width: ${deviceSizeUnits.tabletL})`,
 } as const;
 

@@ -8,10 +8,11 @@ import NavItems from "./NavItems";
 const NavbarContainer = styled.nav`
   ${tw`
     w-full
-    max-w-2xl
+    max-w-screen-2xl
     flex
     justify-between
     items-center
+    p-3
 
     lg:pl-12
     lg:pr-12

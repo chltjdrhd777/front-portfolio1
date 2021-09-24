@@ -6,13 +6,12 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "emotionCSS/theme";
-import GlobalCSS from "emotionCSS/global";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <GlobalCSS />
         <App />
       </ThemeProvider>
     </Provider>

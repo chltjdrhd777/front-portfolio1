@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "comfort";
+  src: url("./assets/fonts/Comfortaa-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Comfortaa-Medium.woff") format("woff"),
+    url("./assets/fonts/Comfortaa-Medium.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "comfort";
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
