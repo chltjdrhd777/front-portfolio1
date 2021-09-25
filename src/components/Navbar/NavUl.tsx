@@ -23,7 +23,7 @@ function NavItems() {
   const isMobile = useMediaQuery({ maxWidth: deviceSizeUnits.tabletS });
 
   //만약 현재 width가 모바일수준이면, 밑의 리스트를 햄버거메뉴로 만들어서 보여줄것이다
-
+  //업로드 테스트, 깃헙 이메일 변경
   return (
     <NavUlContainer>
       {isMobile ? (
