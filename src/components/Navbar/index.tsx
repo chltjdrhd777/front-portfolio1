@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled/macro";
 import tw from "twin.macro";
 import Logo from "components/Logo";
-import NavItems from "./NavItems";
+import NavItems from "./NavUl";
 
 //#CSS PART START
 const NavbarContainer = styled.nav`

@@ -1,4 +1,10 @@
-import React, { PropsWithChildren, useState, MouseEvent } from "react";
+import React, {
+  PropsWithChildren,
+  useState,
+  useRef,
+  useEffect,
+  MutableRefObject,
+} from "react";
 import { HiMenu } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
 import styled from "@emotion/styled/macro";
@@ -35,12 +41,7 @@ const CollapsContainer = styled.div`
        flex-col
        items-center
        transition-all: duration-300 ease-in-out
-       
    `}
-  transform:translateX(100%);
-  &.opened {
-    transform: translateX(0);
-  }
 
   & svg {
     ${tw`
@@ -68,23 +69,46 @@ const CollapsContainer = styled.div`
 
 function Menu({ children }: PropsWithChildren<{}>) {
   const [open, setOpen] = useState(false);
+  let ref: MutableRefObject<any> = useRef();
+  let burgerRef: MutableRefObject<any> = useRef();
 
   function handleClickOutside(e: any) {
-    console.log(e);
+    if (
+      !ref.current.contains(e.target) &&
+      !burgerRef.current.contains(e.target)
+    ) {
+      setOpen(false);
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
   }
 
-  const onToggle = () => {
+  useEffect(() => {
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const onToggle = (e: any) => {
     setOpen((prev) => !prev);
+    document.addEventListener("mousedown", handleClickOutside);
   };
 
   return (
     <MenuContainer>
-      <CollapsContainer className={open ? "opened" : ""}>
+      <div ref={burgerRef}>
+        <HiMenu
+          onClick={onToggle}
+          fill={open ? "rgba(191, 219, 254, 1" : "rgba(248, 113, 113, 1"}
+        />
+      </div>
+
+      <CollapsContainer
+        className={`transform translate-x-${open ? "0" : "full"}`}
+        ref={ref}
+      >
         <IoMdClose onClick={onToggle} />
         {children}
       </CollapsContainer>
-
-      <HiMenu onClick={onToggle} />
     </MenuContainer>
   );
 }
